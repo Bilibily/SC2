@@ -1,0 +1,59 @@
+<!--Actually, this is the client side-->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="jquery.dataTables.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="jquery.dataTables.min.js"></script>
+
+
+    <title>Query</title>
+</head>
+<body>
+
+<p>
+    <label>Name
+        <input type="text" name="customer_name" id="name" required>
+    </label>
+</p>
+
+<p>
+    <label>Phone
+        <input type="tel" name="phone_number" id="phone">
+    </label>
+</p>
+
+<button type="button" class="qq-cancel-button-selector" id="submit">submit</button>
+
+<!--dropdown-->
+
+
+
+<script>
+
+
+    // create a dropdown & input
+    function displayer() {
+        const x = document.getElementById("phone").value;
+        const y = document.getElementById("name").value;
+        console.log(x);
+        console.log(y);
+
+        $.ajax({
+            url: "http://localhost:7777/que",
+            method: "get",
+            data: {Name: x, Phone: y},
+
+        })
+    }
+    const button = document.getElementById("submit");
+    button.addEventListener("click", displayer);
+
+
+
+</script>
+</body>
+</html>
+
+
+
